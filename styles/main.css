@@ -1,0 +1,124 @@
+/* 
+Steven Tucker 
+CSC 465 final project : Site Sight
+*/
+
+html {
+	/*align: center;*/
+}
+
+body {
+	margin: 0 auto;
+	max-width: 1120px;
+	font-family: "MS Sans Serif Regular", sans-serif;
+	border: 2px solid #006090;
+}
+
+header {
+	margin: 30px;
+}
+
+header img {
+	/* float: left; */
+	max-height: 100px;
+	padding: 15px;
+	border: 2px solid black;
+}
+
+header h1 {
+	/*float: left;*/
+}
+
+#main {
+	padding: 0 10px 0 10px;
+	border-top: 2px solid #006090;
+}
+
+footer {
+	padding: 20px 0 20px 0;
+	text-align: center;
+	border-top: 2px solid #006090;
+	margin-top: 10px;
+}
+
+#errors {
+	color: #FF0000;
+}
+#login {
+	text-align: center;
+}
+
+#login_container {
+	text-align: center;
+}
+
+#reg_container {
+	text-align: center;
+}
+#chkbx {
+	padding-top: 6px;
+}
+
+form label {
+	float: left;
+}
+/*
+form input {
+	float: right;
+}
+*/
+
+/* Links */
+a {
+	color: #006090;
+}
+
+a:visited {
+	color: #006090;
+}
+
+a:hover {
+	color: #708090;
+}
+
+/* Grid Items */ 
+.nav-container {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: auto;
+	text-decoration: none;
+	margin-top: 30px;
+	border: 2px solid #708090;
+	
+}
+
+.grid-item {
+	text-align: center;
+	font-size: 34px;
+}
+
+
+.grid-container {
+	display: inline-grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: auto;
+	border: 2px solid #708090;
+	width: 500px;
+	padding: 6px;
+}
+
+.grid-item-l {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	text-align: right;
+	padding: 6px;
+}
+
+.grid-item-r {
+	grid-column-start: 2;
+	grid-column-end: 3;
+	text-align: left;
+	padding: 6px;
+}
+
+

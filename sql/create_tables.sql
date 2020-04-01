@@ -1,8 +1,8 @@
 use snt8550;
-drop table IF EXISTS users;
-drop table IF EXISTS user_info;
-drop table IF EXISTS tag;
-drop table IF EXISTS tile;
+drop table IF EXISTS SS_users;
+drop table IF EXISTS SS_user_info;
+drop table IF EXISTS SS_tag;
+drop table IF EXISTS SS_tile;
 
 CREATE TABLE SS_users 
     (UID            VARCHAR(24) NOT NULL,

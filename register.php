@@ -10,11 +10,7 @@
 			//search names in db
 			$sql = 'SELECT username FROM SS_users';
 			$r = mysqli_query($dbc, $sql);
-			if (!$r) {
-				echo "We are unable to process your request at  this  time. Please try again later.";
-				include 'includes/footer.php'; 
-				exit;
-			} else {
+			if ($r) { //if there are usernames registered in the db
 				while ($row = mysqli_fetch_assoc($r)) {
 					if ($un == $row['username']) {
 						$error .= 'That username is already in use.<br>';
@@ -33,11 +29,7 @@
 			//search emails in db
 			$sql = 'SELECT email FROM SS_users';
 			$r = mysqli_query($dbc, $sql);
-			if (!$r) {
-				echo "We are unable to process your request at  this  time. Please try again later.";
-				include 'includes/footer.php'; 
-				exit;
-			} else {
+			if ($r) { //if there are emails registered in the db
 				while ($row = mysqli_fetch_assoc($r)) {
 					if ($em == $row['email']) {
 						$error .= 'That email is already in use.<br>';
@@ -71,13 +63,12 @@
 			echo "<section id=\"errors_container\">Please fix the following errors:<br><section id=\"errors\">$error</section></section><br>";
 		} else { // Form was completely filled correctly (no errors)
 			// insert into db
-			// $q = "INSERT INTO SS_users VALUES ('$un', '$em', '$hashed', NOW(), NOW(), NULL)";
-			$q = "INSERT INTO SS_users(username, email, password) VALUES (?, ?, ?)";
+			$q = "INSERT INTO SS_users(userID, email, password) VALUES (?, ?, ?)";
 			$stmt = mysqli_prepare($dbc, $q); // statement is prepared
-			mysqli_stmt_bind_param($stmt, 'sss', $un, $em, $hashed); // the error comes up here when values are actually typed // removed NULL and NOW() for queries
+			mysqli_stmt_bind_param($stmt, 'sss', $un, $em, $hashed);
 			mysqli_stmt_execute($stmt);
 			if (mysqli_stmt_affected_rows($stmt)) {
-				// output data (tab these)
+				// output data
 				echo '<section id="confirm"><h3>Confirmation</h3>';
 				echo "<p>Thank you, $un, for registering for Site Sight and agreeing to our <a href=\"tac.php\">Terms and Conditions</a>.</p>";
 				echo "<p>A confirmation email will (not) be sent to $em. Please check your spam folder if it does not appear within 10 minutes.</p></section>";

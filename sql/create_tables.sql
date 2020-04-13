@@ -2,19 +2,15 @@ use snt8550;
 drop table IF EXISTS SS_tiles;
 drop table IF EXISTS SS_tags;
 drop table IF EXISTS SS_users;
-drop table IF EXISTS SS_user_info;
 
 CREATE TABLE SS_users 
     (userID      VARCHAR(24) NOT NULL,
+	email        VARCHAR(32) NOT NULL,
+	password     VARCHAR(64) NOT NULL,
     joined       DATETIME default CURRENT_TIMESTAMP,
     last_login   DATETIME default CURRENT_TIMESTAMP,
     profile_pic  VARCHAR(24) default NULL,
     PRIMARY KEY (userID)) ENGINE=INNODB;
-
-CREATE TABLE SS_user_info
-    (email    VARCHAR(32),
-    password  VARCHAR(64),
-    PRIMARY KEY (email)) ENGINE=INNODB;
 
 CREATE TABLE SS_tags
     (userID       VARCHAR(24) NOT NULL,

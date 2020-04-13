@@ -8,8 +8,8 @@
 			$un = filter_var(trim($_POST['un']), FILTER_SANITIZE_STRING);
 			
 			//search names in db
-			$sql = 'SELECT username FROM SS_users';
-			$r = mysqli_query($dbc, $sql);
+			$q = 'SELECT username FROM SS_users';
+			$r = mysqli_query($dbc, $q);
 			if ($r) { //if there are usernames registered in the db
 				while ($row = mysqli_fetch_assoc($r)) {
 					if ($un == $row['username']) {
@@ -27,8 +27,8 @@
 			$em = filter_var($em, FILTER_VALIDATE_EMAIL);
 			
 			//search emails in db
-			$sql = 'SELECT email FROM SS_users';
-			$r = mysqli_query($dbc, $sql);
+			$q = 'SELECT email FROM SS_users';
+			$r = mysqli_query($dbc, $q);
 			if ($r) { //if there are emails registered in the db
 				while ($row = mysqli_fetch_assoc($r)) {
 					if ($em == $row['email']) {

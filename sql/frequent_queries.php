@@ -39,7 +39,7 @@ if (!empty($_POST['description'])) { // description is filled out
 	$stmt = mysqli_prepare($dbc, $q); // statement is prepared
 	mysqli_stmt_bind_param($stmt, 'sss', $username, $tag_name, $description);
 	mysqli_stmt_execute($stmt);
-} else { // description is not filled out
+} else { // description is not filled out, desc will be null
 	$q = 'INSERT INTO SS_tags (userID, tag_name) VALUES (?, ?)';
 	$stmt = mysqli_prepare($dbc, $q); // statement is prepared
 	mysqli_stmt_bind_param($stmt, 'ss', $username, $tag_name);
@@ -50,27 +50,31 @@ if (!empty($_POST['description'])) { // description is filled out
 // Registering a new tile
 // Given: userID (already logged in), tag_name, tile_name, possibly description, url
 if (!empty($_POST['description'])) { // description is filled out
-	$q = 'INSERT INTO SS_tiles (userID, tag_name, tile_name, description) VALUES (?, ?, ?, ?)';
+	$q = 'INSERT INTO SS_tiles (userID, tag_name, tile_name, description, url) VALUES (?, ?, ?, ?, ?)';
 	$stmt = mysqli_prepare($dbc, $q); // statement is prepared
-	mysqli_stmt_bind_param($stmt, 'ssss', $username, $tag_name, $tile_name, $description);
+	mysqli_stmt_bind_param($stmt, 'sssss', $username, $tag_name, $tile_name, $description, $url);
 	mysqli_stmt_execute($stmt);
-} else { // description is not filled out
-	$q = 'INSERT INTO SS_tags (userID, tag_name, tile_name) VALUES (?, ?, ?)';
+} else { // description is not filled out, desc will be null
+	$q = 'INSERT INTO SS_tiles (userID, tag_name, tile_name, url) VALUES (?, ?, ?, ?)';
 	$stmt = mysqli_prepare($dbc, $q); // statement is prepared
-	mysqli_stmt_bind_param($stmt, 'sss', $username, $tag_name, $tile_name);
+	mysqli_stmt_bind_param($stmt, 'ssss', $username, $tag_name, $tile_name, $url);
 	mysqli_stmt_execute($stmt);
 }
 
 // ####################################################################
 // Updating SS_users last_login when they log in
 // Given: userID (as they login)
-$q = 'UPDATE SS_users SET last_login = ? WHERE userID == ?';
+$q = 'UPDATE SS_users SET last_login=CURRENT_TIMESTAMP WHERE userID=?';
+$stmt = mysqli_prepare($dbc, $q); // statement is prepared
+mysqli_stmt_bind_param($stmt, 's', $username);
+mysqli_stmt_execute($stmt);
 
 // ####################################################################
 // Get all tags of a user
+$q = 'SELECT tag_name FROM SS_tags WHERE userID = ?';
 
 // ####################################################################
 // Get all tiles of a user's tag
-
+$q = 'SELECT tile_name FROM SS_tiles WHERE userID = ? AND tile_name = ?';
 
 ?>

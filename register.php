@@ -1,4 +1,5 @@
-<?php include('includes/header.php')?>
+<?php   include('includes/header.php')
+        include('includes/nav-bar.php') ?>
 		<h2>Register</h2>
 <?php
 	if (isset($_POST['submit'])) {

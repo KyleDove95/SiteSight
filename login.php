@@ -1,5 +1,5 @@
 <?php   include('includes/header.php');
-        include('includes/header.php'); ?>
+        include('includes/nav-bar.php'); ?>
 		<h2>Login</h2>
 <?php
 	if (isset($_POST['submit'])) {

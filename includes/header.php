@@ -3,8 +3,10 @@
 <head>
 	<!-- Steven Tucker -->
 	<meta charset="utf-8">
-	<title><?php include "includes/title.php";?> | Site Sight</title>
+	<title><?php include "includes/title.php"; ?> | Site Sight</title>
 	<link rel="stylesheet" href="styles/main.css">
+	<link rel="stylesheet" href="styles/tags_tiles.css">
+	<link rel="stylesheet" href="styles/nav-bar.css">
 	<link rel="images" href="images">
 </head>
 <body>
@@ -21,4 +23,5 @@
 			</section></a>
 		</section>
 	</header>
+	<?php include "includes/nav-bar.php"; ?>
 	<section id="main">

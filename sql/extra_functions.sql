@@ -1,8 +1,12 @@
 -- Trigger
-create trigger url_userID
-before INSERT
-on SS_users
-... -- more needed
+CREATE TRIGGER user_check 
+BEFORE INSERT ON SS_users
+FOR EACH ROW
+BEGIN
+    IF(EXISTS(SELECT 1 FROM SS_users WHERE userID = NEW.userID)) THEN SIGNAL SQLSTATE VALUE '45000' SET MESSAGE_TEXT = 'INSERT failed due to duplicate user id';
+    END IF;
+END$$
+DELIMITER;
 
 
 
@@ -41,8 +45,3 @@ BEGIN
 
 END
 Delimiter ;
-
-
-
-
-

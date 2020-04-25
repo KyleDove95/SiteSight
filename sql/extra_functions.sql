@@ -25,7 +25,7 @@ FROM SS_tags;
 -- Stored Function
 -- Called like 'SELECT to_url(viewSS_users, userID) FROM SS_users'  OR  'SELECT to_url(SS_tags, tag_name) FROM SS_tags';
 CREATE FUNCTION to_url (
-	view_name VARCHAR(8),		-- either "viewSS_users" or "viewSS_tags" in function call
+	view_name VARCHAR(16),		-- either "viewSS_users" or "viewSS_tags" in function call
 	space_str VARCHAR(32)		-- either "userID" or "tag_name" in function call
 )
 RETURNS VARCHAR(32)

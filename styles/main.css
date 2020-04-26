@@ -32,6 +32,7 @@ header h1 {
 #main {
 	padding: 0 10px 0 10px;
 	border-top: 2px solid #006090;
+    background-color: #E0FFFF;
 }
 
 footer {
@@ -120,5 +121,3 @@ a:hover {
 	text-align: left;
 	padding: 6px;
 }
-
-

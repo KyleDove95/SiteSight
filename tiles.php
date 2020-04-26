@@ -38,6 +38,21 @@
 
 <section id="tile_container">
 		<form name="tile" id="tile_form" action="tile.php" method="post">
+            <section class="grid-container">
+				<section class="grid-item-l">Create a Tag Name:</section>
+				<section class="grid-item-r">
+					<input type="text" name="tagn" id="tagn"
+					<?php if (isset($tagn)) echo "value=\"$tagn\""; ?> 
+					>
+				</section>
+				
+				<section class="grid-item-l">Enter a Tag Description:</section>
+				<section class="grid-item-r">
+					<input type="text" name="tagd" id="tagd"
+					<?php if (isset($tagd)) echo "value=\"$tagd\""; ?>
+					>
+				</section>
+            
 			<section class="grid-container">
 				<section class="grid-item-l">Create a Tile Name:</section>
 				<section class="grid-item-r">

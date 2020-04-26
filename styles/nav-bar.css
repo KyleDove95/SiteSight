@@ -8,6 +8,8 @@ padding-bottom:3px;
 }
 #nav ul li {
 display:inline;
+padding-left:30px;
+padding-right:30px;
 }
 #nav a:link, a:visited {
 text-align:center;

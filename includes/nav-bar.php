@@ -6,7 +6,7 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li <?php if ($currentPage === 'Home') {echo 'class="active"';} ?>><a href="index">Home</a></li>                    
+                <li <?php if ($currentPage === 'Home') {echo 'class="active"';} ?>>                    
                 <li><a href="index.php">Home</a></li>
                 <li><a href="login.php">Login</a></li>
                 <li><a href="register.php">Register</a></li>

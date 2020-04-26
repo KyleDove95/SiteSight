@@ -6,8 +6,8 @@ list-style-type:none;
 padding-top:3px;
 padding-bottom:3px;
 }
-#nav ul li {
-display:inline;
+#nav li {
+display:block;
 }
 #nav a:link, a:visited {
 text-align:center;

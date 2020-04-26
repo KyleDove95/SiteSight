@@ -20,15 +20,15 @@
 	
 ?>
 
-<header class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-default navbar-static-top">
     <div class="container-fluid">
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li <?php if ($title === 'Home') {echo 'class="active"';} ?>><a href="index">Home</a></li>
+                <li <?php if ($title === 'Home') {echo 'class="active"';} ?>><a href="index.php">Home</a></li>
                 <li <?php if ($title === 'Login') {echo 'class="active"';} ?>><a href="login.php">Login</a></li>
                 <li <?php if ($title === 'Register') {echo 'class="active"';} ?>><a href="register.php">Register</a></li>
-                <li <?php if ($title === 'Recent Posts') {echo 'class="active"';} ?>><a href="recent.php">Recent Posts</a></li>
+                <li <?php if ($title === 'Recent Posts') {echo 'class="active"';} ?>><a href="num_tags.php">Explore</a></li>
             </ul>
         </div>
     </div>
-</header>
+</nav>

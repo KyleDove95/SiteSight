@@ -1,15 +1,15 @@
-#nav {
+nav {
 background-color:#F0D5AA;
 }
-#nav ul {
+nav ul {
 list-style-type:none;
 padding-top:3px;
 padding-bottom:3px;
 }
-#nav li {
-display:block;
+nav li {
+display:inline;
 }
-#nav a:link, a:visited {
+nav a:link, a:visited {
 text-align:center;
 padding:3px;
 }

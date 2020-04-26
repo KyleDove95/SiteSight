@@ -1,4 +1,5 @@
 -- Trigger
+DROP TRIGGER my_first_tag;
 DELIMITER $$
 
 CREATE TRIGGER my_first_tag
@@ -13,19 +14,17 @@ DELIMITER ;
 
 
 
-
--- View to implement stored function
-
 -- viewSS_users
+DROP VIEW viewSS_users;
 CREATE VIEW viewSS_users as 
-SELECT *
+SELECT userID AS 'Username', email AS 'Email', password AS 'Hashed Password', joined AS 'Joined On', last_login AS 'Last Login', profile_pic AS 'Profile Filename', is_admin AS 'Admin Status'
 FROM SS_users;
 
 -- viewSS_tags
+DROP VIEW viewSS_tags;
 CREATE VIEW viewSS_tags AS
-SELECT *
+SELECT userID AS 'Username', tag_name AS 'Tag Name', description AS 'Description', time_created AS 'Created On'
 FROM SS_tags;
-
 
 
 
@@ -42,3 +41,5 @@ BEGIN
 	RETURN (newStr);
 END$$
 DELIMITER ;
+
+

@@ -43,3 +43,18 @@ END$$
 DELIMITER ;
 
 
+-- Test if a user is making a tile with a duplicate name
+DROP FUNCTION IF EXISTS double_tile;
+
+DELIMITER $$
+CREATE FUCTION double_tile(test_tile_name VARCHAR(32), test_user_id VARCHAR(32))
+RETURNS VIEW
+BEGIN
+        CREATE VIEW compare_me AS
+        SELECT * FROM SS_tiles WHERE tile_name=test_tile IN
+        (SELECT * FROM SS_tiLES WHERE userID=test_user_id);
+        RETURN (compare_me);
+END$$
+DELIMITER ;
+
+

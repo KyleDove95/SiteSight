@@ -54,7 +54,7 @@
 				</section>
 				
 				<section class="grid-item-l">Provide a URL:</section>
-				<section class="grid-item-r"><input type="text" name="ur" id="ur"></section>
+				<section class="grid-item-r"><input type="url" name="ur" id="ur"></section>
 				
 			
 			<input type="submit" name="submit" value="Tile">

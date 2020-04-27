@@ -12,6 +12,7 @@
 <body>
 	<header>
 		<img src="images/sight.png" alt="Site Sight Logo">
+		<img src="images/anon.jpg" alt="Anonymous Profile Picture">
 		<h1>Site Sight</h1>
 		<!-- Source for image: https://www.kissclipart.com/eye-clipart-circle-point-clip-art-tg1pru/ 
 		Licensed under Creative Commons - Free for commercial use -->

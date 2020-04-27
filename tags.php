@@ -45,7 +45,7 @@
 		
 		// Display all tags for user
 		
-		$q = "SELECT tag_name, description FROM SS_tags WHERE userID = ?";
+		$q = "SELECT tag_name, description FROM viewSS_tags WHERE userID = ?";
 		$stmt = mysqli_prepare($dbc, $q); // statement is prepared (change to username in session)
 		mysqli_stmt_bind_param($stmt, 's', $u); // binding parameters to variables
 		mysqli_stmt_execute($stmt); // execute query

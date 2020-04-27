@@ -18,7 +18,7 @@ header {
 	margin: 30px;
 }
 
-header img {
+img {
 	/* float: left; */
 	max-height: 100px;
 	padding: 15px;
@@ -32,7 +32,6 @@ header h1 {
 #main {
 	padding: 0 10px 0 10px;
 	border-top: 2px solid #006090;
-	background-color: #000609;
 }
 
 footer {

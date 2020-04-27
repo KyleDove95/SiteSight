@@ -1,0 +1,9 @@
+.tag {
+	border: 1px solid #708090;
+	margin: 8px;
+	max-width: 600px;
+}
+
+.tag h2 {
+	text-decoration: underline;
+}

@@ -3,6 +3,6 @@
 
 		<p>Welcome to Site Sight!</p>
 
-		<p>I can do what I want with any data I collect. This isn't a real site.</p>
+		<p>I promise this is a secure site for educational purposes only.</p>
 
 <?php include('includes/footer.php'); ?>

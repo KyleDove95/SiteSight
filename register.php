@@ -1,4 +1,4 @@
-<?php   include('includes/header.php'); ?>
+<?php include('includes/header.php')?>
 		<h2>Register</h2>
 <?php
 	if (isset($_POST['submit'])) {
@@ -65,14 +65,14 @@
 			// insert into db
 			$q = "INSERT INTO SS_users(userID, email, password) VALUES (?, ?, ?)";
 			$stmt = mysqli_prepare($dbc, $q); // statement is prepared
-			mysqli_stmt_bind_param($stmt, 'sss', to_url($un), $em, $hashed);
+			mysqli_stmt_bind_param($stmt, 'sss', $un, $em, $hashed);
 			mysqli_stmt_execute($stmt);
 			if (mysqli_stmt_affected_rows($stmt)) {
 				// output data
 				echo '<section id="confirm"><h3>Confirmation</h3>';
 				echo "<p>Thank you, $un, for registering for Site Sight and agreeing to our <a href=\"tac.php\">Terms and Conditions</a>.</p>";
 				echo "<p>A confirmation email will (not) be sent to $em. Please check your spam folder if it does not appear within 10 minutes.</p></section>";
-				echo "<p>In the meantime, check out your own page: <a href=\"#\">$un</a>";
+				echo "<p>In the meantime, check out your own page: <a href=\"tags.php?u=$un\">$un</a>";
 				echo "<p>We have successfully entered your data into our database. Thank you.</p>";
 			
 				include('includes/footer.php');

@@ -9,43 +9,37 @@
 		if (isset($_POST['submit'])) { // if submit button is pressed
 			if (!empty($_POST['new_tag_name'])) {
 				$tag_name = filter_var(trim($_POST['new_tag_name']), FILTER_SANITIZE_STRING);
-				if (!empty($_POST['new_tag_desc'])) { // description is optional
-					$new_tag_desc = filter_var(trim($_POST['new_tag_desc']), FILTER_SANITIZE_STRING);
+			} else {
+				$error .= 'Tag name is required.<br>';
+			}
+				
+			if (!empty($_POST['new_tag_desc'])) { // description is optional
+				$desc = filter_var(trim($_POST['new_tag_desc']), FILTER_SANITIZE_STRING);
+				if ($error === '') {
 					$q = 'INSERT INTO SS_tags(userID, tag_name, description) VALUES (?, ?, ?)';
 					$stmt = mysqli_prepare($dbc, $q);
-					mysqli_stmt_bind_param($stmt, 'sss', $u, $tag_name, $new_tag_desc);
+					mysqli_stmt_bind_param($stmt, 'sss', $u, $tag_name, $desc);
 					mysqli_stmt_execute($stmt);
-					
 				} else {
+					echo "<section id=\"errors_container\">Please fix the following errors to create a new tile:<br><section id=\"errors\">$error</section></section><br>";
+				}
+				
+			} else {
+				if ($error === '') {
 					$q = 'INSERT INTO SS_tags(userID, tag_name) VALUES (?, ?)';
 					$stmt = mysqli_prepare($dbc, $q);
 					mysqli_stmt_bind_param($stmt, 'ss', $u, $tag_name);
 					mysqli_stmt_execute($stmt);
+				} else {
+					echo "<section id=\"errors_container\">Please fix the following errors to create a new tile:<br><section id=\"errors\">$error</section></section><br>";
 				}
-				
-			} else {
-				$error .= "<section id=\"errors_container\">Please fix the following errors to create a new tag:<br><section id=\"errors\">$error</section></section></br>";
 			}
 		}
-		
-		/*
-			NEW TILE INSERT
-		$s = 'INSERT INTO SS_tiles(userID, tag_name, tile_name, description, url)
-		VALUES (?,?,?,?,?)';
-		$stmt = mysqli_prepare($dbc, $q);
-		mysqli_stmt_bind_param($stmt, 'sssss', $un, $tag_name, $tile_name, $description, $url);
-		mysqli_stmt_execute($stmt);
-
-		*/
-		
-		
-		
-		
-		
+		mysqli_free_result($result);
+		mysqli_free_result($stmt);
 		
 		// Display all tags for user
-		
-		$q = "SELECT tag_name, description FROM viewSS_tags WHERE userID = ?";
+		$q = "SELECT tag_name, description FROM SS_tags WHERE userID = ?";
 		$stmt = mysqli_prepare($dbc, $q); // statement is prepared (change to username in session)
 		mysqli_stmt_bind_param($stmt, 's', $u); // binding parameters to variables
 		mysqli_stmt_execute($stmt); // execute query
@@ -56,6 +50,7 @@
 			echo "<p>It appears no tags have been created for $u yet.</p>";
 			
 		} else { // user has created a tag ?>
+			<img src="images/anon.jpg">
 			<h2><?= $u ?></h2>
 			<section id="tags">
 				<table>
@@ -84,7 +79,7 @@
 			<h2>Create a New Tag</h2>
 			<p>Type a tag name: </p><input type="text" name="new_tag_name" id="new_tag_name" placeholder="Name">
 			<p>Type the description of the tag: </p><input type="text" name="new_tag_desc" id="new_tag_desc" placeholder="Description">
-			<input type="submit" action="tags.php?u=<?= $u ?>" text="Create New Tag">
+			<input type="submit" name="submit" id="submit" action="tags.php?u=<?= $u ?>" text="Create New Tag">
 		</form>
 		
 		

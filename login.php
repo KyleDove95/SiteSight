@@ -1,4 +1,4 @@
-<?php   include('includes/header.php'); ?>
+<?php include('includes/header.php'); ?>
 		<h2>Login</h2>
 <?php
 	if (isset($_POST['submit'])) {

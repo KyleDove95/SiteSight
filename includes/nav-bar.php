@@ -28,7 +28,7 @@
                 <li <?php if ($title === 'Login') {echo 'class="active"';} ?>><a href="login.php">Login</a></li>
                 <li <?php if ($title === 'Register') {echo 'class="active"';} ?>><a href="register.php">Register</a></li>
                 <li <?php if ($title === 'Recent Posts') {echo 'class="active"';} ?>><a href="num_tags.php">Explore</a></li>
-		<li <?php if ($title === 'Terms and Conditions') {echo 'class="active"';} ?>><a href="tac.php">Terms and Conditions</a></li>
+				<li <?php if ($title === 'Terms and Conditions') {echo 'class="active"';} ?>><a href="tac.php">Terms and Conditions</a></li>
             </ul>
         </div>
     </div>

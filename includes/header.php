@@ -12,8 +12,10 @@
 <body>
 	<header>
 		<img src="images/sight.png" alt="Site Sight Logo">
+		<h1>Site Sight</h1>
 		<!-- Source for image: https://www.kissclipart.com/eye-clipart-circle-point-clip-art-tg1pru/ 
 		Licensed under Creative Commons - Free for commercial use -->
+		<!--
 		<section class="nav-container">
 			<a href="index.php"><section class="grid-item">
 				<h1>Home</h1>
@@ -22,6 +24,7 @@
 				<h1>Register</h1>
 			</section></a>
 		</section>
+		-->
 	</header>
 	<?php include "includes/nav-bar.php"; ?>
 	<section id="main">

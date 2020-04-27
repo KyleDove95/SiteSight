@@ -65,7 +65,7 @@
 			// insert into db
 			$q = "INSERT INTO SS_users(userID, email, password) VALUES (?, ?, ?)";
 			$stmt = mysqli_prepare($dbc, $q); // statement is prepared
-			mysqli_stmt_bind_param($stmt, 'sss', $un, $em, $hashed);
+			mysqli_stmt_bind_param($stmt, 'sss', to_url($un), $em, $hashed);
 			mysqli_stmt_execute($stmt);
 			if (mysqli_stmt_affected_rows($stmt)) {
 				// output data
